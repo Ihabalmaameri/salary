@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حساب الراتب</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        input, label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>حاسبة الراتب</h1>
+
+    <form id="salaryForm">
+        <label for="baseSalary">الراتب الأساسي:</label>
+        <input type="number" id="baseSalary" name="baseSalary" required>
+
+        <label for="hireDate">تاريخ التعيين:</label>
+        <input type="date" id="hireDate" name="hireDate" required>
+
+        <label for="bonuses">العلاوات:</label>
+        <input type="number" id="bonuses" name="bonuses">
+
+        <label for="deductions">الخصومات:</label>
+        <input type="number" id="deductions" name="deductions">
+
+        <button type="button" onclick="calculateSalary()">احسب الراتب</button>
+    </form>
+
+    <h2>الراتب الكلي: <span id="totalSalary">0</span></h2>
+
+    <script>
+        function calculateSalary() {
+            const baseSalary = parseFloat(document.getElementById('baseSalary').value) || 0;
+            const bonuses = parseFloat(document.getElementById('bonuses').value) || 0;
+            const deductions = parseFloat(document.getElementById('deductions').value) || 0;
+
+            const totalSalary = baseSalary + bonuses - deductions;
+
+            document.getElementById('totalSalary').textContent = totalSalary.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
+	
